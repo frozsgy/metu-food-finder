@@ -7,28 +7,26 @@ import re
 class TurkishText():
 
     text = ""
+    l = ['ı', 'ğ', 'ü', 'ş', 'i', 'ö', 'ç']
+    u = ['I', 'Ğ', 'Ü', 'Ş', 'İ', 'Ö', 'Ç']
 
     def __init__(self, text):
         self.text = text
 
     def upper(self):
-        l = ['ı', 'ğ', 'ü', 'ş', 'i', 'ö', 'ç']
-        u = ['I', 'Ğ', 'Ü', 'Ş', 'İ', 'Ö', 'Ç']
         res = ""
         for i in self.text:
-            if i in l:
-                res += u[l.index(i)]
+            if i in self.l:
+                res += self.u[self.l.index(i)]
             else :
                 res += i.upper()
         return res
 
     def lower(self):
-        l = ['ı', 'ğ', 'ü', 'ş', 'i', 'ö', 'ç']
-        u = ['I', 'Ğ', 'Ü', 'Ş', 'İ', 'Ö', 'Ç']
         res = ""
         for i in self.text:
-            if i in u:
-                res += l[u.index(i)]
+            if i in self.u:
+                res += self.l[self.u.index(i)]
             else :
                 res += i.lower()
         return res
@@ -107,7 +105,6 @@ if __name__ == '__main__':
         while True:
             s = input("Menüde aramak istediğiniz yemeğin ismini girin: ")
             t.findFood(s)
-
     except KeyboardInterrupt:
         print("\n" + "-"*20)
         print("Görüşmek üzere!")
