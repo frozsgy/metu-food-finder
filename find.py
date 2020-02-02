@@ -57,7 +57,7 @@ class Food():
             if items is not None:
                 ogle = items['ogle']
                 aksam = items['aksam']
-                daily = [[],[]]
+                daily = [[], []]
                 for j in range(5):
                     daily[0].append(ogle[j]['name'])
                     daily[1].append(aksam[j]['name'])
@@ -74,7 +74,7 @@ class Food():
         res = []
         for i in range(len(self.menu)):
             for k in range(2):
-                for j in range(4):
+                for j in range(5):
                     match = re.search(nameu, list(self.menu.values())[i][k][j])
                     if match:
                         res.append((list(self.menu.keys())[i], k, list(self.menu.values())[i][k][j]))
@@ -88,10 +88,10 @@ class Food():
                 food = TurkishText(i[2])
                 print("%s - %s Yemeği - %s" % (i[0], when, food.capitalize()))
             print("Afiyet olsun!")
-            print("-"*20)
+            print("-" * 20)
         else :
             print("Maalesef bu ay menüde %s yok :/" % (namel))
-            print("-"*20)
+            print("-" * 20)
 
 
 if __name__ == '__main__':
@@ -100,12 +100,12 @@ if __name__ == '__main__':
     print("Menü yükleniyor, lütfen bekleyin...")
     t.loadMenu()
     print("Menü yüklendi.")
-    print("-"*20)
+    print("-" * 20)
     try:
         while True:
             s = input("Menüde aramak istediğiniz yemeğin ismini girin: ")
             t.findFood(s)
     except KeyboardInterrupt:
-        print("\n" + "-"*20)
+        print("\n" + "-" * 20)
         print("Görüşmek üzere!")
         exit()
